@@ -22,11 +22,23 @@ const getProductByCategory = async (req, res) => {
     }
 }
 
+const insertManyProducts = async () => {
+    try {
+        const products = [
+           
+        ];
 
+        const result = await TopProduct.insertMany(products);
+        console.log("Products inserted:", result);
+    } catch (error) {
+        console.error("Error inserting products:", error);
+    }
+};
 const getTopProducts = async (req, res) => {
     try {
+        console.log("Getting top products");
         const topProducts = await TopProduct.find();
-        res.status(200).json(topProducts);
+        res.status(200).json({message : "top product list",topProducts});
     }catch(error) {
         res.status(500).json({ message: error.message });
     }
@@ -45,6 +57,7 @@ module.exports = {
     getproducts,
     getProductByCategory,
     getTopProducts,
-    getPopularProducts
+    getPopularProducts,
+    insertManyProducts
 }
 

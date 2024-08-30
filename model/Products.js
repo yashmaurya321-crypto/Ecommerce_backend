@@ -13,7 +13,7 @@ const ProductSchema = new mongoose.Schema({
         required: true
     },
     image: {
-        type: String,
+        type: Array,
         required: true
     },
     discountedPrice: {
@@ -35,8 +35,9 @@ const ProductSchema = new mongoose.Schema({
     freeDelivery: {
         type: Boolean,
         
-    }
-})
+    },
+    
+},{timestamps : true})
 
 const Product = mongoose.model('Product', ProductSchema);
 
